@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<style>
+    :root{
+    --bg-color: #222629;
+    --text-color: #474b4f;
+    --main-color: #86c232;
+    --white-color: #6b6e70;
+    --shadow-color: #61892f;
+}
+
+    .about-container {
+        background: var(--white-color);
+        color: var(--bg-color);
+        top: 100%;
+        margin-top: 0;
+    }
+
+    .about-container .about-info {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        gap: 50px;        
+    }
+
+    .about-info .about-img3 {
+        position: left;
+        width: 400px;
+    }
+
+    .about-info .about-content1 {
+        padding: 20px;
+        margin-left: 50px;
+        margin-top: 20px;
+        overflow: hidden;
+    }
+
+    .about-info .about-content1 p{
+        text-align: left;
+        font-size: 1.3rem;
+    }
+
+    .more-about {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    .more-about .about-img4 img {
+        width: 500px;
+        height: 600px;
+    }
+
+    .more-about .about-content2 {
+        margin-right: 40px;
+        margin-top: 20px;
+    }
+    .more-about .about-content2 h3 {
+        font-size: 1.7rem;
+        font-weight: 600;
+    }
+    .more-about .about-content2 p {
+        font-size: 1.2rem;
+        overflow-y: hidden;
+        text-align: left;
+    }
+    .more-about .about-content2 ul {
+        font-size: 1.2rem;
+        margin-left: 20px;
+    }
+    .more-about .about-content2 ul li {
+        padding-top: 10px;
+    }
+
+    .about-thanks {
+        font-size: 1.3rem;
+        margin-top: 30px;
+        padding: 10px;
+        align-items: baseline;
+        text-align: left;
+    }
+    .team-container {
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        position: relative;
+    }
+    .team-container .team-box {
+        margin: 0 30px;
+        height: 500px;
+        width: 300px;
+        border: .2rem solid var(--white-color);
+        overflow: hidden;
+    }
+    .team-box img {
+        height: 400px;
+        width: 100%;
+    }
+    .team-box .team-info {
+        padding: 10px;
+        margin-top: 10px;
+    }
+</style>
+<body>
+
+    <section class="about-container" id="about-container">
+        <div class="about-info">
+            <div class="about-img3">
+                <img src="about1-removebg-preview (1).png" alt="">
+            </div>
+            <div class="about-content1">
+                <h3>Welcome To Our Donation Platform</h3>
+                <p>This platform was boern out of vision from Sam who saw a need for a more efficient and user-friendly way to manage and support student welfare. With a deep commitment to making a positive impact on families and students, Sam conceptualized a solution that bridges gaps and simplifies processes.</p>
+                <h3>Our Story</h3>
+                <p>The journey began when Sam shared his idea with me, David. Seeing the potential and the profound impact it could have, I took on a challenge of transforming this idea into a reality. Combinig our strengths --Sam's innovative vision and my technical expertise--we embarked on a mission tp create a comprehensive platform that addresses the needs of families and student support proffessionals. </p>
+            </div>
+        </div>
+        <div class="more-about">
+            <div class="about-content2">
+                <h3>Our Mission</h3>
+                <p>Our mission is to provide a reliable, accessible, and user-centric platform that helps families navigate the complexities of student support. We aim to facilitate effective communication, streamline processes, and offer valuable resources to ensure the well-being of students and the peace of mind for parents and guardians.</p>
+                <h3>What We Offer</h3>
+                <ul>
+                    <li><b>user-Friendly Interface:</b> Easy to navigate and designed with users in mind</li>
+                    <li><b>Secure and Confidential:</b> Your privacy and security are our top priorities</li>
+                    <li><b>Comprehensive Resources:</b> Access to information, tools and support to assist with child support matters.</li>
+                    <li><b>Community Support:</b> A space to connect with others, share experiences, and seek advice.</li>
+                </ul>
+            </div>
+            <div class="about-img4">
+                <img src="1.jpg" alt="">
+            </div>
+        </div>
+        <div class="about-thanks">
+            <p>Thank you joining us on this journey. Together, we can make a differnce in the lives of studnets and families.</p>
+        </div>
+        <div class="break">
+            <hr>
+        </div>
+        <p>Feel free to tweak this draft to better match your vision and specifics of your project.</p>
+    </section>
+
+    <!-- team members section  -->
+     <section class="team-members" id="team-members">
+        <h1>Here's a List Of Our Team Members</h1>
+        <div class="team-container">
+            <div class="team-box">
+                <div class="team-info">
+                    <h3>Samson Blaziar Otieno</h3>
+                    <p>C.E.O</p>
+                </div>
+
+                <img src="aboutus4.png" alt="">
+            </div>
+            <div class="team-box">
+                <div class="team-info">
+                    <h3><u>David Ouma, Software Developer</u></h3>
+                    <h3>C.T.O</h3>
+                </div>
+
+                <img src="about1-removebg-preview.png" alt="">
+            </div>
+        </div>
+     </section>
+     <footer class="footer">
+        <div class="pages">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#causes">Causes</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="login.html">Login</a>
+        </div>
+        <div class="footer-text">
+            <h2>Reach Us Through</h2>
+            <div class="social-media">
+                <a href="https://web.facebook.com/leobenter1999" target="_blank"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="https://x.com/DavidDage2177" target="_blank"><i class='bx bx-x' ></i></a>
+                <a href="https://www.instagram.com/__daviddage" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                <a href="https://www.linkedin.com/in/david-ouma-a036372b4" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+                
+            </div>
+
+            <p>Copyright &copy || Created with ❤ by davidouma</p>
+        </div>
+     </footer>
+    
+</body>
+</html>

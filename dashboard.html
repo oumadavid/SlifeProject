@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h2>Dashboard</h2>
+        <h3>Welcome, {username}</h3>
+        <div class="dashboard-info">
+            <p>Targeted Amount: <span id="targetAmount">$70,000</span></p>
+            <p>Achieved Amount: <span id="achievedAmount">$61,000</span></p>
+            <p>Total Number of People: <span id="totalPeople">60</span></p>
+        </div>
+
+        <div class="invite-section">
+            <p>Invite others to donate using your link:</p>
+            <input type="text" id="inviteLink" readonly>
+            <button onclick="copyInviteLink()">Copy Link</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Donor</th>
+                    <th>Pledge</th>
+                    <th>Donation Date</th>
+                    <th>Achieved</th>
+                </tr>
+            </thead>
+            <tbody id="donorTable">
+                <!-- Rows will be populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
