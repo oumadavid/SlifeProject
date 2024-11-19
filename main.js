@@ -73,74 +73,8 @@ function copyInviteLink() {
     alert('Invite link copied to clipboard!');
 }
 
-// making the sign in and sign up responsive
-
-const loginButton = document.getElementById('login');
-const signUpButton = document.getElementById('signup');
-const signUpForm = document.getElementById('signUpForm');
-const loginForm = document.getElementById('loginForm');
-
-signUpButton.addEventListener('click', function() {
-    signUpForm.style.display() = 'block';
-    loginForm.style.display() = 'none';
-})
-
-loginButton.addEventListener('click', function (){
-    signUpForm.style.display() = 'none';
-    loginForm.style.display() = 'block';
-})
-
-// Handle Sin-up
-document.getElementById('signupForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const firstName = document.getElementById('firstname').value;
-    const lastName = document.getElementById('lastname').value;
-    const email = document.getElementById('email').value;
-    const idNumber = document.getElementById('idnumber').value;
-    const password = document.getElementById('password').value;
-
-    fetch('http://localhost:5000/signup', {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json',
-        },
-        body: JSON.stringify({ firstName, lastName, email, idNumber, password}),
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.message) {
-            //On successful sign-up, redirect to the dashbord
-            window.location.href = 'dashboard.html'; //Redirect to dashboard
-        } else {
-            alert(data.error); //Display sign-up error
-        }
-    })
-    .catch(error => console.error('Error:', error));
-});
-
-// Handle Login 
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    fetch('http://localhost:5000/login', {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json',
-        },
-        body: JSON.stringify({ email, password}),
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.message) {
-            //On successful login, redirect to the dashboard
-            window.location.href = 'dashboard.html';
-        } else {
-            alert(data.error); // Display login error
-        }
-    })
-    .catch(error => console.error('Error:', error));
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get('username');
+    document.querySelector('.dashboard h3').textContent = `Welcome, ${username}`;
 });
