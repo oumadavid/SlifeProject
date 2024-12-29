@@ -292,17 +292,21 @@ h3, p {
 }
 
 .causes .causes-container {
+    flex-wrap: wrap;
     align-items: center;
     display: flex;
-    position: relative;
-    justify-content: space-between;
+    justify-content: center;
+    box-shadow: 10px 10px 5px 5px var(--bg-color);
 
 }
 
 .causes .causes-container .causes-box {
+    flex: 1 1 30rem;
     margin: 0 30px;
-    height: 400px;
-    width: 300px;
+    max-height: 400px;
+    max-width: 300px;
+    border: #474b4f;
+    box-shadow: 10px 10px 5px 5px var(--bg-color);
 }
 
 .causes-box img {
@@ -512,6 +516,10 @@ th {
         height: 80rem;
     }
 
+    .causes {
+        padding-bottom: 50px;
+    }
+
 }
 
 @media (max-width: 1024px){
@@ -526,7 +534,12 @@ th {
 
 @media(max-width: 991px) {
     .home .home-content {
-        max-width: 50rem;
+        width: 100%;
+        margin-top: 150px;
+        background-position: fixed;
+        margin-bottom: 0px;
+        padding: 0;
+        padding-top: 50px;
     }
     .home .home-content h3 {
         font-size: 2.5rem;
@@ -534,6 +547,11 @@ th {
     .about,
     .causes {
         padding-bottom: 6rem;
+    }
+
+    .causes .causes-container .causes-box {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
     }
     footer {
         padding: 2rem 3% ;
@@ -583,13 +601,59 @@ th {
     .about {
         flex-direction: column;
     }
+
+    .about-img img {
+        width: 100%;
+    }
+
+    .achievements .container {
+        justify-content: center;
+        display: block;
+    }
+
+    .achievements .text-content {
+        max-width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .achievements .text-content p {
+        font-size: 20px;
+    }
+
+    .achievements .stats {
+        right: 0;
+    }
     
     .causes .causes-container {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .causes .causes-container .causes-box {
+        max-width: 100%;
     }
     
 }
 
 @media (max-width: 568px) {
-    
+    html {
+        font-size: 50%;
+    }
+
+    .achievements .stats {
+        display: block;
+        align-items: center;
+    }
+
+    .achievements .text-content h2{
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 1.7rem;
+    }
+
+    .footer .pages a {
+        font-size: 1.7rem;
+    }
 }

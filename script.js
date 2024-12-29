@@ -16,7 +16,7 @@ document.querySelector('.form-box.login form').addEventListener('submit', async 
     const email = e.target.querySelector('input[placeholder="username"]').value;
     const password = e.target.querySelector('input[placeholder="password"]').value;
 
-    const response = await fetch('http://localhost:5000/api/auth/login', {
+    const response = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
