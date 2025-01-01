@@ -1,25 +1,38 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
 const cors = require('cors');
+const db = require('./db'); // Centralized database connection
 const authRoutes = require('./routes/auth');
-
-// Load environment variables
-dotenv.config();
+const path = require('path');
 
 const app = express();
+
+// Middleware
 app.use(express.json()); // Parse JSON payloads
 app.use(cors()); // Enable Cross-Origin Resource Sharing
 
-// MongoDB connection
-mongoose
-    .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Connected to MongoDB')) // Fixed typo here
-    .catch((err) => console.error('MongoDB connection error:', err)); // Handle connection errors
+// Serve static files (like the dashboard HTML)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Test database connection
+db.connect((err) => {
+    if (err) {
+        console.error('Failed to connect to the database:', err);
+        process.exit(1); // Exit if the database connection fails
+    } else {
+        console.log('Connected to MySQL database');
+    }
+});
 
 // Routes
-app.use('/api/auth', authRoutes); // Ensure the route file exists and is correctly implemented
+app.use('/api/auth', authRoutes);
+
+// Catch-all route for serving the dashboard
+app.get('/dashboard', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
+});
 
 // Server configuration
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const PORT = 5000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});

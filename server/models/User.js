@@ -1,23 +1,40 @@
-const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const db = require('../db'); // Import the centralized database connection
 
+const User = {
+    async createUser({ username, email, password }) {
+        try {
+            const hashedPassword = await bcrypt.hash(password, 10);
+            const query = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
+            const values = [username, email, hashedPassword];
+            return new Promise((resolve, reject) => {
+                db.query(query, values, (err, result) => {
+                    if (err) {
+                        return reject(err);
+                    }
+                    resolve(result);
+                });
+            });
+        } catch (err) {
+            throw new Error(err.message);
+        }
+    },
 
-const UserSchema = new mongoose.Schema({
-    username: { type: String, required: true, unique: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-}, { timestamps: true });
+    async findUserByEmail(email) {
+        const query = 'SELECT * FROM users WHERE email = ?';
+        return new Promise((resolve, reject) => {
+            db.query(query, [email], (err, results) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(results[0]);
+            });
+        });
+    },
 
-//Hash the password before saving
-UserSchema.pre('save', async function (next) {
-    if (!this.isModified('password')) return next();
-    this.password = await bcrypt.hash(this.password, 10);
-    next();
-});
-
-//Method to compare password
-UserSchema.methods.matchPassword = function (enteredPassword) {
-    return bcrypt.compare(enteredPassword, this.password);
+    async matchPassword(enteredPassword, storedPassword) {
+        return bcrypt.compare(enteredPassword, storedPassword);
+    }
 };
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = User;

@@ -640,6 +640,10 @@ th {
         font-size: 50%;
     }
 
+    .home .home-content {
+        margin-top: 20px;
+    }
+
     .achievements .stats {
         display: block;
         align-items: center;
