@@ -207,7 +207,7 @@ h3, p {
     padding-left: 10px;
     color: #fff;
     padding: 10px;
-    margin: 10px 0 10px 30;
+    margin: 0 0 10px 30;
     align-items: center;
     text-align: left;
 }
@@ -312,6 +312,7 @@ h3, p {
 .causes-box img {
     height: 300px;
     width: 100%;
+    border-radius: 10px;
 }
 
 .causes-box .causes-content {
@@ -561,6 +562,7 @@ th {
 @media (max-width: 768px) {
     #menu-icon {
         display: block;
+        font-size: 2.7rem;
     }
     .navbar {
         position: absolute;
@@ -642,6 +644,14 @@ th {
 
     .home .home-content {
         margin-top: 20px;
+    }
+
+    .about-content h2, p {
+        padding-bottom: 5px;
+    }
+
+    .about-content p {
+        line-height: 1.5;
     }
 
     .achievements .stats {
