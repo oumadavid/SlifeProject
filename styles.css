@@ -642,6 +642,10 @@ th {
         font-size: 50%;
     }
 
+    #menu-icon {
+        font-size: 25px;
+    }
+
     .home .home-content {
         margin-top: 20px;
     }
@@ -660,7 +664,7 @@ th {
     }
 
     .achievements .text-content h2{
-        font-size: 30px;
+        font-size: 20px;
     }
 
     p {
